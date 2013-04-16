@@ -19,6 +19,7 @@ namespace viajes_sin_limites
         public string aerolinea { get; set; }
         public decimal tiempo { get; set; }
         public decimal distancia { get; set; }
+        public decimal costo { get; set; }
         public List<treeNode> ChildNodes { get; set; }
 
 
@@ -34,13 +35,14 @@ namespace viajes_sin_limites
         /// <param name="distance"></param>
         /// <param name="time"></param>
         /// <param name="childNodes"></param>
-        public treeNode(string  aeropuerto_origen, decimal distanciaV,
+        public treeNode(string  aeropuerto_origen, decimal cost, decimal distanciaV,
             decimal tiempoV, List<treeNode> childNodes)
         {
             origen = aeropuerto_origen;
             ChildNodes = childNodes;
             distancia = distanciaV;
             tiempo = tiempoV;
+            costo = cost;
         }
 
         /// <summary>

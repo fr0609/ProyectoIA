@@ -180,7 +180,36 @@
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
               <Mapping SourceColumn="codigo_pais" DataSetColumn="codigo_pais" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseVSLConnectionString (Settings)" DbObjectName="Ciudades" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Id, Nombre, codigo_pais
+FROM            Ciudades
+WHERE        (codigo_pais = "costa rica")</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseVSLConnectionString (Settings)" DbObjectName="Ciudades" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Nombre, codigo_pais FROM Ciudades where codigo_pais = 'costa rica'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseVSLConnectionString (Settings)" DbObjectName="Ciudades" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillBy2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Id, Nombre, codigo_pais
+FROM            Ciudades
+WHERE        (codigo_pais = '2')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PaisesTableAdapter" GeneratorDataComponentClassName="PaisesTableAdapter" Name="Paises" UserDataComponentName="PaisesTableAdapter">
             <MainSource>
@@ -278,7 +307,7 @@
   <xs:element name="DatabaseVSLDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DatabaseVSLDataSet1" msprop:Generator_UserDSName="DatabaseVSLDataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Aerolineas" msprop:Generator_TableClassName="AerolineasDataTable" msprop:Generator_TableVarName="tableAerolineas" msprop:Generator_TablePropName="Aerolineas" msprop:Generator_RowDeletingName="AerolineasRowDeleting" msprop:Generator_UserTableName="Aerolineas" msprop:Generator_RowChangingName="AerolineasRowChanging" msprop:Generator_RowEvHandlerName="AerolineasRowChangeEventHandler" msprop:Generator_RowDeletedName="AerolineasRowDeleted" msprop:Generator_RowEvArgName="AerolineasRowChangeEvent" msprop:Generator_RowChangedName="AerolineasRowChanged" msprop:Generator_RowClassName="AerolineasRow">
+        <xs:element name="Aerolineas" msprop:Generator_TableClassName="AerolineasDataTable" msprop:Generator_TableVarName="tableAerolineas" msprop:Generator_RowChangedName="AerolineasRowChanged" msprop:Generator_TablePropName="Aerolineas" msprop:Generator_RowDeletingName="AerolineasRowDeleting" msprop:Generator_RowChangingName="AerolineasRowChanging" msprop:Generator_RowEvHandlerName="AerolineasRowChangeEventHandler" msprop:Generator_RowDeletedName="AerolineasRowDeleted" msprop:Generator_RowClassName="AerolineasRow" msprop:Generator_UserTableName="Aerolineas" msprop:Generator_RowEvArgName="AerolineasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -306,7 +335,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Aeropuertos" msprop:Generator_TableClassName="AeropuertosDataTable" msprop:Generator_TableVarName="tableAeropuertos" msprop:Generator_TablePropName="Aeropuertos" msprop:Generator_RowDeletingName="AeropuertosRowDeleting" msprop:Generator_UserTableName="Aeropuertos" msprop:Generator_RowChangingName="AeropuertosRowChanging" msprop:Generator_RowEvHandlerName="AeropuertosRowChangeEventHandler" msprop:Generator_RowDeletedName="AeropuertosRowDeleted" msprop:Generator_RowEvArgName="AeropuertosRowChangeEvent" msprop:Generator_RowChangedName="AeropuertosRowChanged" msprop:Generator_RowClassName="AeropuertosRow">
+        <xs:element name="Aeropuertos" msprop:Generator_TableClassName="AeropuertosDataTable" msprop:Generator_TableVarName="tableAeropuertos" msprop:Generator_RowChangedName="AeropuertosRowChanged" msprop:Generator_TablePropName="Aeropuertos" msprop:Generator_RowDeletingName="AeropuertosRowDeleting" msprop:Generator_RowChangingName="AeropuertosRowChanging" msprop:Generator_RowEvHandlerName="AeropuertosRowChangeEventHandler" msprop:Generator_RowDeletedName="AeropuertosRowDeleted" msprop:Generator_RowClassName="AeropuertosRow" msprop:Generator_UserTableName="Aeropuertos" msprop:Generator_RowEvArgName="AeropuertosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
@@ -334,7 +363,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Ciudades" msprop:Generator_TableClassName="CiudadesDataTable" msprop:Generator_TableVarName="tableCiudades" msprop:Generator_TablePropName="Ciudades" msprop:Generator_RowDeletingName="CiudadesRowDeleting" msprop:Generator_UserTableName="Ciudades" msprop:Generator_RowChangingName="CiudadesRowChanging" msprop:Generator_RowEvHandlerName="CiudadesRowChangeEventHandler" msprop:Generator_RowDeletedName="CiudadesRowDeleted" msprop:Generator_RowEvArgName="CiudadesRowChangeEvent" msprop:Generator_RowChangedName="CiudadesRowChanged" msprop:Generator_RowClassName="CiudadesRow">
+        <xs:element name="Ciudades" msprop:Generator_TableClassName="CiudadesDataTable" msprop:Generator_TableVarName="tableCiudades" msprop:Generator_RowChangedName="CiudadesRowChanged" msprop:Generator_TablePropName="Ciudades" msprop:Generator_RowDeletingName="CiudadesRowDeleting" msprop:Generator_RowChangingName="CiudadesRowChanging" msprop:Generator_RowEvHandlerName="CiudadesRowChangeEventHandler" msprop:Generator_RowDeletedName="CiudadesRowDeleted" msprop:Generator_RowClassName="CiudadesRow" msprop:Generator_UserTableName="Ciudades" msprop:Generator_RowEvArgName="CiudadesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -355,7 +384,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Paises" msprop:Generator_TableClassName="PaisesDataTable" msprop:Generator_TableVarName="tablePaises" msprop:Generator_TablePropName="Paises" msprop:Generator_RowDeletingName="PaisesRowDeleting" msprop:Generator_UserTableName="Paises" msprop:Generator_RowChangingName="PaisesRowChanging" msprop:Generator_RowEvHandlerName="PaisesRowChangeEventHandler" msprop:Generator_RowDeletedName="PaisesRowDeleted" msprop:Generator_RowEvArgName="PaisesRowChangeEvent" msprop:Generator_RowChangedName="PaisesRowChanged" msprop:Generator_RowClassName="PaisesRow">
+        <xs:element name="Paises" msprop:Generator_TableClassName="PaisesDataTable" msprop:Generator_TableVarName="tablePaises" msprop:Generator_RowChangedName="PaisesRowChanged" msprop:Generator_TablePropName="Paises" msprop:Generator_RowDeletingName="PaisesRowDeleting" msprop:Generator_RowChangingName="PaisesRowChanging" msprop:Generator_RowEvHandlerName="PaisesRowChangeEventHandler" msprop:Generator_RowDeletedName="PaisesRowDeleted" msprop:Generator_RowClassName="PaisesRow" msprop:Generator_UserTableName="Paises" msprop:Generator_RowEvArgName="PaisesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
@@ -382,7 +411,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vuelo" msprop:Generator_TableClassName="VueloDataTable" msprop:Generator_TableVarName="tableVuelo" msprop:Generator_TablePropName="Vuelo" msprop:Generator_RowDeletingName="VueloRowDeleting" msprop:Generator_UserTableName="Vuelo" msprop:Generator_RowChangingName="VueloRowChanging" msprop:Generator_RowEvHandlerName="VueloRowChangeEventHandler" msprop:Generator_RowDeletedName="VueloRowDeleted" msprop:Generator_RowEvArgName="VueloRowChangeEvent" msprop:Generator_RowChangedName="VueloRowChanged" msprop:Generator_RowClassName="VueloRow">
+        <xs:element name="Vuelo" msprop:Generator_TableClassName="VueloDataTable" msprop:Generator_TableVarName="tableVuelo" msprop:Generator_RowChangedName="VueloRowChanged" msprop:Generator_TablePropName="Vuelo" msprop:Generator_RowDeletingName="VueloRowDeleting" msprop:Generator_RowChangingName="VueloRowChanging" msprop:Generator_RowEvHandlerName="VueloRowChangeEventHandler" msprop:Generator_RowDeletedName="VueloRowDeleted" msprop:Generator_RowClassName="VueloRow" msprop:Generator_UserTableName="Vuelo" msprop:Generator_RowEvArgName="VueloRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" minOccurs="0" />
@@ -439,9 +468,9 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="AeropuertosAerolineas" msdata:parent="Aeropuertos" msdata:child="Aerolineas" msdata:parentkey="Codigo" msdata:childkey="Codigo" msprop:Generator_UserChildTable="Aerolineas" msprop:Generator_ChildPropName="GetAerolineasRows" msprop:Generator_ParentPropName="AeropuertosRow" msprop:Generator_UserRelationName="AeropuertosAerolineas" msprop:Generator_RelationVarName="relationAeropuertosAerolineas" msprop:Generator_UserParentTable="Aeropuertos" />
-      <msdata:Relationship name="CiudadesAeropuertos" msdata:parent="Ciudades" msdata:child="Aeropuertos" msdata:parentkey="Id" msdata:childkey="id_ciudad" msprop:Generator_UserChildTable="Aeropuertos" msprop:Generator_ChildPropName="GetAeropuertosRows" msprop:Generator_ParentPropName="CiudadesRow" msprop:Generator_UserRelationName="CiudadesAeropuertos" msprop:Generator_RelationVarName="relationCiudadesAeropuertos" msprop:Generator_UserParentTable="Ciudades" />
-      <msdata:Relationship name="PaisesCiudades" msdata:parent="Paises" msdata:child="Ciudades" msdata:parentkey="Codigo" msdata:childkey="codigo_pais" msprop:Generator_UserChildTable="Ciudades" msprop:Generator_ChildPropName="GetCiudadesRows" msprop:Generator_ParentPropName="PaisesRow" msprop:Generator_UserRelationName="PaisesCiudades" msprop:Generator_RelationVarName="relationPaisesCiudades" msprop:Generator_UserParentTable="Paises" />
+      <msdata:Relationship name="AeropuertosAerolineas" msdata:parent="Aeropuertos" msdata:child="Aerolineas" msdata:parentkey="Codigo" msdata:childkey="Codigo" msprop:Generator_UserChildTable="Aerolineas" msprop:Generator_ChildPropName="GetAerolineasRows" msprop:Generator_UserRelationName="AeropuertosAerolineas" msprop:Generator_RelationVarName="relationAeropuertosAerolineas" msprop:Generator_UserParentTable="Aeropuertos" msprop:Generator_ParentPropName="AeropuertosRow" />
+      <msdata:Relationship name="CiudadesAeropuertos" msdata:parent="Ciudades" msdata:child="Aeropuertos" msdata:parentkey="Id" msdata:childkey="id_ciudad" msprop:Generator_UserChildTable="Aeropuertos" msprop:Generator_ChildPropName="GetAeropuertosRows" msprop:Generator_UserRelationName="CiudadesAeropuertos" msprop:Generator_RelationVarName="relationCiudadesAeropuertos" msprop:Generator_UserParentTable="Ciudades" msprop:Generator_ParentPropName="CiudadesRow" />
+      <msdata:Relationship name="PaisesCiudades" msdata:parent="Paises" msdata:child="Ciudades" msdata:parentkey="Codigo" msdata:childkey="codigo_pais" msprop:Generator_UserChildTable="Ciudades" msprop:Generator_ChildPropName="GetCiudadesRows" msprop:Generator_UserRelationName="PaisesCiudades" msprop:Generator_RelationVarName="relationPaisesCiudades" msprop:Generator_UserParentTable="Paises" msprop:Generator_ParentPropName="PaisesRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

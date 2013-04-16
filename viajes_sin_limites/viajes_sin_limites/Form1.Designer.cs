@@ -54,11 +54,15 @@
             this.paisesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paisesTableAdapter = new viajes_sin_limites.DatabaseVSLDataSet1TableAdapters.PaisesTableAdapter();
             this.paisesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.paisesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.databaseVSLDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseVSLDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -259,11 +263,38 @@
             this.paisesBindingSource1.DataMember = "Paises";
             this.paisesBindingSource1.DataSource = this.databaseVSLDataSet1;
             // 
+            // comboBox7
+            // 
+            this.comboBox7.DataSource = this.paisesBindingSource2;
+            this.comboBox7.DisplayMember = "Nombre";
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(415, 207);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(121, 21);
+            this.comboBox7.TabIndex = 22;
+            this.comboBox7.ValueMember = "Codigo";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(412, 176);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Escala";
+            // 
+            // paisesBindingSource2
+            // 
+            this.paisesBindingSource2.DataMember = "Paises";
+            this.paisesBindingSource2.DataSource = this.databaseVSLDataSet1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 497);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.comboBox7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.comboBox5);
@@ -290,6 +321,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,6 +354,9 @@
         private System.Windows.Forms.BindingSource paisesBindingSource;
         private DatabaseVSLDataSet1TableAdapters.PaisesTableAdapter paisesTableAdapter;
         private System.Windows.Forms.BindingSource paisesBindingSource1;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.BindingSource paisesBindingSource2;
+        private System.Windows.Forms.Label label7;
     }
 }
 

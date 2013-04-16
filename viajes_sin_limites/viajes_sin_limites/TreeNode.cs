@@ -21,8 +21,8 @@ namespace viajes_sin_limites
         public decimal distancia { get; set; }
         public decimal costo { get; set; }
         public List<treeNode> ChildNodes { get; set; }
-
-
+        DatabaseVSLDataSet d= new DatabaseVSLDataSet();
+        
         public treeNode()
         {
 
@@ -50,10 +50,12 @@ namespace viajes_sin_limites
         /// </summary>
         public void LoadChildNodes()
         {  
-            DataSet DtSet = ins.LoadChildNodes(this.origen);
-            
+          //  DataSet DtSet = ins.LoadChildNodes(this.origen);
+            DatabaseVSLDataSet1 DtSet = new DatabaseVSLDataSet1();
+       //   string s=  d.Vuelo.IdColumn.ToString();
             this.ChildNodes = new List<treeNode>();
-            int sum = DtSet.Tables[0].Rows.Count;
+            int sum = DtSet.Vuelo.Count;
+         //   DtSet.ReadXml
             for (int i = 0; i < sum; i++)
             {
                 if (this.origen == DtSet.Tables[0].Rows[i][6].ToString())

@@ -12,6 +12,8 @@ namespace viajes_sin_limites
         //List store route from Origin to destiny.
         public List<treeNode> clone = new List<treeNode>();
         //public List<treeNode> clone = new List<treeNode>();
+        public List<treeNode> scales = new List<treeNode>();
+        //public List<treeNode> clone = new List<treeNode>();
 
         int finish = 0;
         decimal minimumcost = 1000;
@@ -29,7 +31,7 @@ namespace viajes_sin_limites
             //Load Child Nodes.
             root.LoadChildNodes();
             //Method to determinate the full route.
-            Routes(root, aeropuerto_destino, List);
+            Routes(root, aeropuerto_destino, List,scales);
         }
 
         /// <summary>
@@ -38,8 +40,9 @@ namespace viajes_sin_limites
         /// <param name="_current"></param>
         /// <param name="destinyCity"></param>
         /// <param name="_currentList"></param>
+        /// <param name="_scales"></param>
         public void Routes(treeNode _current, string destinyCity, 
-            List<treeNode> _currentList)
+            List<treeNode> _currentList,List<treeNode> _scales)
         {
             //Stop if found destiny city.
             if (_current.origen.Equals(destinyCity))
@@ -84,20 +87,21 @@ namespace viajes_sin_limites
                 }
                 _current.ChildNodes[i].LoadChildNodes();
                 //Recursive call to get full route.
-                Routes(_current.ChildNodes[i], destinyCity, _currentList);
+                Routes(_current.ChildNodes[i], destinyCity, _currentList, _scales);
                 //If found destiny city.
                 if (finish == 1)
                 {
                     finish = 0;
-                    //If current route is shorter than minimun cost remplace this route.
-                    if (_current.ChildNodes[i].costo < minimumcost)
-                    {
-                        minimumcost = _current.ChildNodes[i].costo;
+                    
+                    //check if all the scales are in the route. and If current route is shorter than minimun cost remplace this route.
+                    if(compareScales(_currentList,_scales)==true && _current.ChildNodes[i].costo < minimumcost){
+                         minimumcost = _current.ChildNodes[i].costo;
                         //Create a list with the new route.
                         listClone(_currentList);
+                    
                     }
-                    _currentList.RemoveAt(_currentList.Count - 1);
-                    continue;
+                     _currentList.RemoveAt(_currentList.Count - 1);
+                     continue; //continue;
                 }
                 _currentList.RemoveAt(_currentList.Count - 1);
             }
@@ -122,6 +126,37 @@ namespace viajes_sin_limites
             return false;
         }
 
+                /// <summary>
+        /// Method to determine if all the scales are in the final route
+        /// </summary>
+        /// <param name="_scales"></param>
+        /// <param name="_currentList"></param>
+        /// <returns></returns>
+
+         public bool compareScales(List<treeNode> _currentList,List<treeNode> _scales)
+        {
+             if(_scales==null)return true;       
+             bool check=false;
+             for (int j = 0; j < _scales.Count; j++)
+             {
+                for (int i = 0; i < _currentList.Count; i++)
+                {        //Return true if the node was found
+                        if (_currentList[i].origen == _scales[j].origen)
+                        { 
+                             check=true; 
+                        }
+                }
+                 if(check==false)
+                 {
+                     return false;
+                 }
+             }
+            //true in otherwise
+            return true;
+        }
+
+
+
         /// <summary>
         /// Method that sorts ascending the nodes from a current node.
         /// </summary>
@@ -129,7 +164,7 @@ namespace viajes_sin_limites
         public void sortChildNodes(treeNode node)
         {
             var sortList = from o in node.ChildNodes
-                           orderby o.Time ascending  //verificar
+                           orderby o.costo ascending  //verificar
                            select o;
             node.ChildNodes = sortList.ToList<treeNode>();
             return;
@@ -152,4 +187,4 @@ namespace viajes_sin_limites
         }
     }
     }
-}
+

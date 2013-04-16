@@ -16,6 +16,7 @@ namespace viajes_sin_limites
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
         }
     }
 }

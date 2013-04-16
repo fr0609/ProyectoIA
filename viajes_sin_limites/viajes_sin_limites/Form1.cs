@@ -25,5 +25,11 @@ namespace viajes_sin_limites
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Rutas d = new Rutas();
+            d.getRoute("MMA,", "SJO");
+        }
     }
 }

@@ -23,13 +23,13 @@ namespace viajes_sin_limites
         /// </summary>
         /// <param name="originCity"></param>
         /// <param name="destinyCity"></param>
-        public void getRoute(string originCity, string destinyCity)
+        public void getRoute(string aeropuerto_origen, string aeropuerto_destino)
         {
-            treeNode root = new treeNode(originCity,0, 0, 0, null);
+            treeNode root = new treeNode(aeropuerto_origen,0, 0, 0, null);
             //Load Child Nodes.
             root.LoadChildNodes();
             //Method to determinate the full route.
-            Routes(root, destinyCity, List);
+            Routes(root, aeropuerto_destino, List);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace viajes_sin_limites
             List<treeNode> _currentList)
         {
             //Stop if found destiny city.
-            if (_current.City.Equals(destinyCity))
+            if (_current.origen.Equals(destinyCity))
             {
                 _currentList.Add(_current);
                 finish = 1;
@@ -90,9 +90,9 @@ namespace viajes_sin_limites
                 {
                     finish = 0;
                     //If current route is shorter than minimun cost remplace this route.
-                    if (_current.ChildNodes[i].Time < minimumcost)
+                    if (_current.ChildNodes[i].costo < minimumcost)
                     {
-                        minimumcost = _current.ChildNodes[i].Time;
+                        minimumcost = _current.ChildNodes[i].costo;
                         //Create a list with the new route.
                         listClone(_currentList);
                     }

@@ -27,7 +27,7 @@ namespace viajes_sin_limites
         /// <param name="destinyCity"></param>
         public void getRoute(string aeropuerto_origen, string aeropuerto_destino)
         {
-            treeNode root = new treeNode(aeropuerto_origen,0, 0, 0, null);
+            treeNode root = new treeNode(aeropuerto_origen,0,null);
             //Load Child Nodes.
             root.LoadChildNodes();
             //Method to determinate the full route.

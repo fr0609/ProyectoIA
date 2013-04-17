@@ -30,7 +30,12 @@ namespace viajes_sin_limites
         private void button1_Click(object sender, EventArgs e)
         {
             Rutas d = new Rutas();
-            d.getRoute("MMA,", "SJO");
+            d.getRoute("mma", "sjo");
+            for (int i = 1; i < d.clone.Count; i++) {
+                Console.WriteLine(d.clone[i].origen +" ---> "+ d.clone[i].destino);
+
+            
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -13,7 +13,7 @@ namespace viajes_sin_limites
     {
         //Instance for connections, functions City, Type Road,
         //Time, Distance and Nodes.
-        OleDbConnection ins = new  OleDbConnection();
+        SQL_Connection ins = new  SQL_Connection();
         public string origen { get; set; }
         public string destino { get; set; }
         public string aerolinea { get; set; }
@@ -35,13 +35,12 @@ namespace viajes_sin_limites
         /// <param name="distance"></param>
         /// <param name="time"></param>
         /// <param name="childNodes"></param>
-        public treeNode(string  aeropuerto_origen, decimal cost, decimal distanciaV,
-            decimal tiempoV, List<treeNode> childNodes)
+        public treeNode(string  aeropuerto_origen, decimal cost,
+            List<treeNode> childNodes)
         {
             origen = aeropuerto_origen;
             ChildNodes = childNodes;
-            distancia = distanciaV;
-            tiempo = tiempoV;
+          //  tiempo = tiempoV;
             costo = cost;
         }
 
@@ -49,23 +48,20 @@ namespace viajes_sin_limites
         /// Method for loading the nodes that can be reached.
         /// </summary>
         public void LoadChildNodes()
-        {  
-          //  DataSet DtSet = ins.LoadChildNodes(this.origen);
-            DatabaseVSLDataSet1 DtSet = new DatabaseVSLDataSet1();
-       //   string s=  d.Vuelo.IdColumn.ToString();
+        {
+            DataTable DtSet = ins.LoadChildNodes(this.origen);
             this.ChildNodes = new List<treeNode>();
-            int sum = DtSet.Vuelo.Count;
-         //   DtSet.ReadXml
+            int sum = DtSet.Rows.Count;
+            //DtSet.Tables[0].Rows[][]
             for (int i = 0; i < sum; i++)
             {
-                if (this.origen == DtSet.Tables[0].Rows[i][6].ToString())
+                if (this.origen== DtSet.Rows[i][0].ToString())
                 { continue; }
                 treeNode node = new treeNode();
-                node.origen = DtSet.Tables[0].Rows[i][6].ToString();
-                //node. = DtSet.Tables[0].Rows[i][8].ToString();
-                node.distancia = Convert.ToDecimal(DtSet.Tables[0].Rows[i][4].ToString());
-                node.tiempo = (Convert.ToDecimal(DtSet.Tables[0].Rows[i][4].ToString())
-                    * Convert.ToDecimal(DtSet.Tables[0].Rows[i][3].ToString())) + this.tiempo;
+                node.origen = DtSet.Rows[i][0].ToString();
+             //   node.tiempo = Convert.ToDecimal(DtSet.Tables[0].Rows[i][3].ToString());
+                node.costo =(Convert.ToDecimal(DtSet.Rows[i][2].ToString()))+this.costo;
+                
                 node.ChildNodes = new List<treeNode>();
                 this.ChildNodes.Add(node);
             }

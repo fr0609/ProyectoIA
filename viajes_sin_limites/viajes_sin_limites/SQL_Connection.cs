@@ -35,7 +35,7 @@ namespace viajes_sin_limites
             //Connection = Var with the Data Source connection.
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DatabaseVSL.accdb");
             con.Open();
-            OleDbDataAdapter dat = new OleDbDataAdapter("select Origen,Destino,Costo from Vuelo WHERE Origen='" + _current+"'"+"or Destino='"+ _current +"'", con);
+            OleDbDataAdapter dat = new OleDbDataAdapter("select Origen,Destino,Costo from Vuelo WHERE Origen='" + _current+"'"/*"'"+"or Destino='"+ _current +"'"*/, con);
           //  MessageBox.Show(_current]);
             DataTable dt = new DataTable();
             dat.Fill(dt);

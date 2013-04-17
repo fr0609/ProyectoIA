@@ -55,10 +55,10 @@ namespace viajes_sin_limites
             //DtSet.Tables[0].Rows[][]
             for (int i = 0; i < sum; i++)
             {
-                if (this.origen== DtSet.Rows[i][0].ToString())
-                { continue; }
+            /*    if (this.origen== DtSet.Rows[i][0].ToString())
+                { continue; }*/
                 treeNode node = new treeNode();
-                node.origen = DtSet.Rows[i][0].ToString();
+                node.origen = DtSet.Rows[i][1].ToString();
              //   node.tiempo = Convert.ToDecimal(DtSet.Tables[0].Rows[i][3].ToString());
                 node.costo =(Convert.ToDecimal(DtSet.Rows[i][2].ToString()))+this.costo;
                 

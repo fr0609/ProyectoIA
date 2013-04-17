@@ -31,8 +31,10 @@ namespace viajes_sin_limites
         {
             Rutas d = new Rutas();
             d.getRoute("mma", "sjo");
+            Console.WriteLine("Exito");
             for (int i = 1; i < d.clone.Count; i++) {
-                Console.WriteLine(d.clone[i].origen +" ---> "+ d.clone[i].destino);
+                Console.WriteLine("Exito");
+                Console.WriteLine(d.clone[i].origen +" ---> "+ d.clone[i-1].origen+" ---> "+d.clone[i].costo);
 
             
             }

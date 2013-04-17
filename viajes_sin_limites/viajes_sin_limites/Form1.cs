@@ -108,89 +108,78 @@ namespace viajes_sin_limites
 
        }
 
+        /**
+         * instancia de conexion con la base de datos 
+         */
+       conBD instancia = new conBD();
 
+       /**
+        * carga los las ciudades de los paises de origen
+        */
        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
        {
-           OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DatabaseVSL.accdb");
-           con.Open();
-           string comb = comboBox1.SelectedValue.ToString();
-           OleDbDataAdapter dat = new OleDbDataAdapter("SELECT Id, Nombre, codigo_pais FROM Ciudades WHERE codigo_pais='"+comb+"'", con);
-           DataTable dt = new DataTable();
-           dat.Fill(dt);
-           int len= dt.Rows.Count;
-           for (int i = 0; i < len; i++)
+           try
            {
+               string comb = comboBox1.SelectedValue.ToString();
+               DataTable dt = instancia.llenarCombo2(comb);
                comboBox2.DataSource = dt;
                comboBox2.DisplayMember = "Nombre";
                comboBox2.ValueMember = "Id";
            }
-           con.Close();
+           catch (Exception ex) { }
        }
 
+       /**
+        * carga los aeropuertos de las ciudades de origen
+        */
        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
        {
            try
            {
-               OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DatabaseVSL.accdb");
-               con.Open();
                string comb = comboBox2.SelectedValue.ToString();
-               OleDbDataAdapter dat = new OleDbDataAdapter("SELECT Codigo, Nombre, id_ciudad FROM Aeropuertos WHERE id_ciudad =" + comb + "", con);
-               //MessageBox.Show(comb);
-               DataTable dt = new DataTable();
-               dat.Fill(dt);
-               int len = dt.Rows.Count;
-               for (int i = 0; i < len; i++)
-               {
-                   comboBox3.DataSource = dt;
-                   comboBox3.DisplayMember = "Nombre";
-                   comboBox3.ValueMember = "Codigo";
-               }
-               con.Close();
-            }
-            catch(Exception ex){
-                // MessageBox.Show(ex.Message);
-            }
+               DataTable dt = instancia.llenarCombo3(comb);
+               comboBox3.DataSource = dt;
+               comboBox3.DisplayMember = "Nombre";
+               comboBox3.ValueMember = "Codigo";
+           }
+           catch (Exception ex)
+           {
+               // MessageBox.Show(ex.Message);
+           }
        }
 
+       /**
+        * carga las ciudades de los paises de destino
+        */
        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
        {
-           OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DatabaseVSL.accdb");
-           con.Open();
-           string comb = comboBox4.SelectedValue.ToString();
-           OleDbDataAdapter dat = new OleDbDataAdapter("SELECT Id, Nombre, codigo_pais FROM Ciudades WHERE codigo_pais='" + comb + "'", con);
-           DataTable dt = new DataTable();
-           dat.Fill(dt);
-           int len = dt.Rows.Count;
-           for (int i = 0; i < len; i++)
+           try
            {
+               string comb = comboBox4.SelectedValue.ToString();
+               DataTable dt = instancia.llenarCombo5(comb);
                comboBox5.DataSource = dt;
                comboBox5.DisplayMember = "Nombre";
                comboBox5.ValueMember = "Id";
            }
-           con.Close();
+           catch (Exception ex) { }
        }
 
+       /**
+        * carga los aeropuertos de las ciudades de destino
+        */
        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
        {
            try
-            {
-               OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DatabaseVSL.accdb");
-               con.Open();
+           {
                string comb = comboBox5.SelectedValue.ToString();
-               OleDbDataAdapter dat = new OleDbDataAdapter("SELECT Codigo, Nombre, id_ciudad FROM Aeropuertos WHERE id_ciudad =" + comb + "", con);
-               DataTable dt = new DataTable();
-               dat.Fill(dt);
-               int len = dt.Rows.Count;
-               for (int i = 0; i < len; i++)
-               {
-                   comboBox6.DataSource = dt;
-                   comboBox6.DisplayMember = "Nombre";
-                   comboBox6.ValueMember = "Codigo";
-               }
-               con.Close();
-            }
-            catch(Exception ex){
-            }
+               DataTable dt = instancia.llenarCombo6(comb);
+               comboBox6.DataSource = dt;
+               comboBox6.DisplayMember = "Nombre";
+               comboBox6.ValueMember = "Codigo";
+           }
+           catch (Exception ex)
+           {
+           }
        }
     
 

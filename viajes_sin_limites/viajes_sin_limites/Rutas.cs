@@ -25,13 +25,17 @@ namespace viajes_sin_limites
         /// </summary>
         /// <param name="originCity"></param>
         /// <param name="destinyCity"></param>
-        public void getRoute(string aeropuerto_origen, string aeropuerto_destino)
+        public void getRoute(string aeropuerto_origen, string aeropuerto_destino, string scale,int _scaleN)
         {
             treeNode root = new treeNode(aeropuerto_origen,0,null);
             //Load Child Nodes.
             root.LoadChildNodes();
+            if (!scale.Equals(""))
+            {
+                scales.Add(new treeNode(scale, 0, null));
+            }
             //Method to determinate the full route.
-            Routes(root, aeropuerto_destino, List,scales);
+            Routes(root, aeropuerto_destino, List,scales,_scaleN);
         }
 
         /// <summary>
@@ -42,7 +46,7 @@ namespace viajes_sin_limites
         /// <param name="_currentList"></param>
         /// <param name="_scales"></param>
         public void Routes(treeNode _current, string destinyCity, 
-            List<treeNode> _currentList,List<treeNode> _scales)
+            List<treeNode> _currentList,List<treeNode> _scales, int _scaleN)
         {
             //Stop if found destiny city.
             if (_current.origen.Equals(destinyCity))
@@ -87,18 +91,21 @@ namespace viajes_sin_limites
                 }
                 _current.ChildNodes[i].LoadChildNodes();
                 //Recursive call to get full route.
-                Routes(_current.ChildNodes[i], destinyCity, _currentList, _scales);
+                Routes(_current.ChildNodes[i], destinyCity, _currentList, _scales, _scaleN);
                 //If found destiny city.
                 if (finish == 1)
                 {
                     finish = 0;
-                    
-                    //check if all the scales are in the route. and If current route is shorter than minimun cost remplace this route.
-                    if(compareScales(_currentList,_scales)==true && _current.ChildNodes[i].costo < minimumcost){
-                         minimumcost = _current.ChildNodes[i].costo;
-                        //Create a list with the new route.
-                        listClone(_currentList);
-                    
+                    if (_currentList.Count <= _scaleN) //Number of scales. 2=no escale, 3= a escale.
+                    {
+                        //check if all the scales are in the route. and If current route is shorter than minimun cost remplace this route.
+                        if (compareScales(_currentList, _scales) == true && _current.ChildNodes[i].costo < minimumcost)
+                        {
+                            minimumcost = _current.ChildNodes[i].costo;
+                            //Create a list with the new route.
+                            listClone(_currentList);
+
+                        }
                     }
                      _currentList.RemoveAt(_currentList.Count - 1);
                      continue; //continue;

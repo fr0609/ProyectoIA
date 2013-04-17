@@ -29,22 +29,58 @@ namespace viajes_sin_limites
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Rutas d = new Rutas();
-            d.getRoute("mma", "sjo");
-            Console.WriteLine("Costo");
-           // List<treeNode> r=d.clone.Reverse();
-           Console.WriteLine(d.clone[1].costo);
-           Console.WriteLine("Ruta");
-            foreach (treeNode t in d.clone)
-            {
-                
-                Console.Write(t.origen + " ---> ");
-            }
-        /*    for (int i = 1; i < d.clone.Count; i++) {
-                Console.WriteLine("Exito");
-                Console.WriteLine(d.clone[i].origen +" ---> "+ d.clone[i-1].origen+" ---> "+d.clone[i].costo);
+             
+            string origen = comboBox3.SelectedValue.ToString();
+            string destino= comboBox6.SelectedValue.ToString();
+            string escala = comboBox7.SelectedValue.ToString();
+           // if (escala.Equals(null))
+           // {
 
-            */
+                Rutas d = new Rutas();
+                d.getRoute(origen, destino,"pty",3);
+                // d.getRoute("pty", "sjo");
+                Console.WriteLine("Costo");
+                // List<treeNode> r=d.clone.Reverse();
+             //   Console.WriteLine(d.clone[0].costo);
+                Console.WriteLine("Ruta");
+                int c = d.clone.Count;
+                foreach (treeNode t in d.clone)
+                {
+
+                    Console.Write(t.origen + " ---> ");
+                }
+        //    }
+        /*
+            if (!escala.Equals(null))
+            {
+
+                Rutas d = new Rutas();
+                d.getRoute(origen, escala);
+                // d.getRoute("pty", "sjo");
+                // Console.WriteLine("Costo");
+                // List<treeNode> r=d.clone.Reverse();
+                decimal costo = d.clone[1].costo;
+                Console.WriteLine("Ruta");
+                foreach (treeNode t in d.clone)
+                {
+
+                    Console.Write(t.origen + " ---> ");
+                }
+                //scale
+                Rutas d1 = new Rutas();
+                // d.getRoute("mma", "pty");
+                d1.getRoute(escala, destino);
+                Console.WriteLine("Costo");
+                // List<treeNode> r=d.clone.Reverse();
+                costo = costo + d1.clone[1].costo; //costo total de la ruta con escala.
+                Console.WriteLine(costo);
+                Console.WriteLine("Ruta");
+                foreach (treeNode t1 in d1.clone)
+                {
+
+                    Console.Write(t1.origen + " ---> ");
+                }
+            }*/
             }
         
 

@@ -61,5 +61,45 @@ namespace viajes_sin_limites
             return dt;
         }
 
+        /**
+         * busca el nombre de una cuidad con el codigo del aeropuerto que se encuentra an dicha ciudad
+         */
+        public string encontrarCiudad(string p_Aero)
+        {
+            try
+            {
+                OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DatabaseVSL.accdb");
+                con.Open();
+                OleDbDataAdapter dat = new OleDbDataAdapter("SELECT Nombre FROM Ciudades WHERE (Id = (SELECT id_ciudad FROM Aeropuertos WHERE (Codigo = '" + p_Aero + "')))", con);
+                DataTable dt = new DataTable();
+                dat.Fill(dt);
+                con.Close();
+                string rt = dt.Rows[0][0].ToString();
+                return rt;
+            }catch(Exception ex){
+                return "";
+            }
+        }
+
+
+        public string encontrarPais(string p_Pais)
+        {
+            try
+            {
+                OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DatabaseVSL.accdb");
+                con.Open();
+                OleDbDataAdapter dat = new OleDbDataAdapter("SELECT Nombre FROM Paises WHERE (Codigo = '" + p_Pais + "')", con);
+                DataTable dt = new DataTable();
+                dat.Fill(dt);
+                con.Close();
+                string rt = dt.Rows[0][0].ToString();
+                return rt;
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+        }
+
     }
 }

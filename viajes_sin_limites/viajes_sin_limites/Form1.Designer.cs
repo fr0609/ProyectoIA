@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Escalas = new System.Windows.Forms.CheckBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.paisesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -53,23 +52,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.presupuesto = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.ciudadO = new System.Windows.Forms.Label();
-            this.ciudadD = new System.Windows.Forms.Label();
-            this.paisE = new System.Windows.Forms.Label();
-            this.CostoV = new System.Windows.Forms.Label();
-            this.duracionV = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.duracionV = new System.Windows.Forms.Label();
+            this.CostoV = new System.Windows.Forms.Label();
+            this.paisE = new System.Windows.Forms.Label();
+            this.ciudadD = new System.Windows.Forms.Label();
+            this.ciudadO = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseVSLDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseVSLDataSet1BindingSource)).BeginInit();
@@ -77,10 +77,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource2)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.SuspendLayout();
@@ -102,15 +102,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(143, 20);
             this.textBox3.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Presupuesto";
             // 
             // button1
             // 
@@ -269,17 +260,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Búsqueda de Vuelos";
             // 
-            // groupBox2
+            // groupBox5
             // 
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Location = new System.Drawing.Point(7, 20);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(134, 131);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Origen";
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Location = new System.Drawing.Point(148, 20);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(73, 131);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.presupuesto);
+            this.groupBox4.Controls.Add(this.comboBox7);
+            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.Escalas);
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Location = new System.Drawing.Point(7, 159);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(359, 107);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Restricciones";
+            // 
+            // presupuesto
+            // 
+            this.presupuesto.AutoSize = true;
+            this.presupuesto.Location = new System.Drawing.Point(11, 68);
+            this.presupuesto.Name = "presupuesto";
+            this.presupuesto.Size = new System.Drawing.Size(85, 17);
+            this.presupuesto.TabIndex = 23;
+            this.presupuesto.Text = "Presupuesto";
+            this.presupuesto.UseVisualStyleBackColor = true;
+            this.presupuesto.CheckedChanged += new System.EventHandler(this.presupuesto_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -293,30 +308,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Destino";
             // 
-            // groupBox4
+            // groupBox2
             // 
-            this.groupBox4.Controls.Add(this.comboBox7);
-            this.groupBox4.Controls.Add(this.textBox3);
-            this.groupBox4.Controls.Add(this.Escalas);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Location = new System.Drawing.Point(7, 159);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(359, 107);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Restricciones";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Location = new System.Drawing.Point(148, 20);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(73, 131);
-            this.groupBox5.TabIndex = 3;
-            this.groupBox5.TabStop = false;
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Location = new System.Drawing.Point(7, 20);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(134, 131);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Origen";
             // 
             // groupBox6
             // 
@@ -347,86 +349,18 @@
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             // 
-            // label4
+            // label10
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Ciudad de Origen";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Ciudad de Destino";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 80);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "País de Escala";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 113);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Costo del Viaje";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 145);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Duración del Viaje";
-            // 
-            // ciudadO
-            // 
-            this.ciudadO.AutoSize = true;
-            this.ciudadO.Location = new System.Drawing.Point(122, 19);
-            this.ciudadO.MinimumSize = new System.Drawing.Size(135, 13);
-            this.ciudadO.Name = "ciudadO";
-            this.ciudadO.Size = new System.Drawing.Size(135, 13);
-            this.ciudadO.TabIndex = 5;
-            // 
-            // ciudadD
-            // 
-            this.ciudadD.AutoSize = true;
-            this.ciudadD.Location = new System.Drawing.Point(122, 50);
-            this.ciudadD.MinimumSize = new System.Drawing.Size(135, 13);
-            this.ciudadD.Name = "ciudadD";
-            this.ciudadD.Size = new System.Drawing.Size(135, 13);
-            this.ciudadD.TabIndex = 6;
-            // 
-            // paisE
-            // 
-            this.paisE.AutoSize = true;
-            this.paisE.Location = new System.Drawing.Point(122, 80);
-            this.paisE.MinimumSize = new System.Drawing.Size(135, 13);
-            this.paisE.Name = "paisE";
-            this.paisE.Size = new System.Drawing.Size(135, 13);
-            this.paisE.TabIndex = 7;
-            // 
-            // CostoV
-            // 
-            this.CostoV.AutoSize = true;
-            this.CostoV.Location = new System.Drawing.Point(122, 113);
-            this.CostoV.MinimumSize = new System.Drawing.Size(135, 13);
-            this.CostoV.Name = "CostoV";
-            this.CostoV.Size = new System.Drawing.Size(135, 13);
-            this.CostoV.TabIndex = 8;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Image = global::viajes_sin_limites.Properties.Resources.images;
+            this.label10.Location = new System.Drawing.Point(7, 168);
+            this.label10.MinimumSize = new System.Drawing.Size(250, 75);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(250, 75);
+            this.label10.TabIndex = 10;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // duracionV
             // 
@@ -437,15 +371,86 @@
             this.duracionV.Size = new System.Drawing.Size(135, 13);
             this.duracionV.TabIndex = 9;
             // 
-            // label10
+            // CostoV
             // 
-            this.label10.AutoSize = true;
-            this.label10.Image = global::viajes_sin_limites.Properties.Resources.images;
-            this.label10.Location = new System.Drawing.Point(7, 168);
-            this.label10.MinimumSize = new System.Drawing.Size(250, 75);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(250, 75);
-            this.label10.TabIndex = 10;
+            this.CostoV.AutoSize = true;
+            this.CostoV.Location = new System.Drawing.Point(122, 113);
+            this.CostoV.MinimumSize = new System.Drawing.Size(135, 13);
+            this.CostoV.Name = "CostoV";
+            this.CostoV.Size = new System.Drawing.Size(135, 13);
+            this.CostoV.TabIndex = 8;
+            // 
+            // paisE
+            // 
+            this.paisE.AutoSize = true;
+            this.paisE.Location = new System.Drawing.Point(122, 80);
+            this.paisE.MinimumSize = new System.Drawing.Size(135, 13);
+            this.paisE.Name = "paisE";
+            this.paisE.Size = new System.Drawing.Size(135, 13);
+            this.paisE.TabIndex = 7;
+            // 
+            // ciudadD
+            // 
+            this.ciudadD.AutoSize = true;
+            this.ciudadD.Location = new System.Drawing.Point(122, 50);
+            this.ciudadD.MinimumSize = new System.Drawing.Size(135, 13);
+            this.ciudadD.Name = "ciudadD";
+            this.ciudadD.Size = new System.Drawing.Size(135, 13);
+            this.ciudadD.TabIndex = 6;
+            // 
+            // ciudadO
+            // 
+            this.ciudadO.AutoSize = true;
+            this.ciudadO.Location = new System.Drawing.Point(122, 19);
+            this.ciudadO.MinimumSize = new System.Drawing.Size(135, 13);
+            this.ciudadO.Name = "ciudadO";
+            this.ciudadO.Size = new System.Drawing.Size(135, 13);
+            this.ciudadO.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 145);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Duración del Viaje";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 113);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Costo del Viaje";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 80);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "País de Escala";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Ciudad de Destino";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Ciudad de Origen";
             // 
             // Form1
             // 
@@ -469,12 +474,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paisesBindingSource2)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
@@ -486,7 +491,6 @@
 
         private System.Windows.Forms.CheckBox Escalas;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private DatabaseVSLDataSet1 databaseVSLDataSet1;
@@ -524,6 +528,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox presupuesto;
     }
 }
 

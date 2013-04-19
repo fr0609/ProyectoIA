@@ -19,7 +19,13 @@ namespace viajes_sin_limites
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (Escalas.Checked == true)
+            {
+                presupuesto.AutoCheck = false;
+            }
+            else {
+                presupuesto.AutoCheck = true;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,59 +35,97 @@ namespace viajes_sin_limites
 
         private void button1_Click(object sender, EventArgs e)
         {
-             
-            string origen = comboBox3.SelectedValue.ToString();
-            string destino= comboBox6.SelectedValue.ToString();
-            string escala = comboBox7.SelectedValue.ToString();
-           // if (escala.Equals(null))
-           // {
+            ciudadD.Text = "";
+            ciudadD.Text = "";
+            paisE.Text = "";
+            CostoV.Text = "";
+            duracionV.Text = "";
+            label10.Text = "";
 
-                Rutas d = new Rutas();
-                d.getRoute(origen, destino,"pty",3);
-                // d.getRoute("pty", "sjo");
-                Console.WriteLine("Costo");
-                // List<treeNode> r=d.clone.Reverse();
-             //   Console.WriteLine(d.clone[0].costo);
-                Console.WriteLine("Ruta");
-                int c = d.clone.Count;
-                foreach (treeNode t in d.clone)
-                {
-
-                    Console.Write(t.origen + " ---> ");
-                }
-        //    }
-        /*
-            if (!escala.Equals(null))
+            if(Escalas.Checked==true){
+                MessageBox.Show("escala");
+            }
+            else if (presupuesto.Checked == true)
+            {
+                MessageBox.Show("presupuesto");
+            }
+            else {
+                MessageBox.Show("sin restricciones");
+            }
+            try
             {
 
+                string origen = comboBox3.SelectedValue.ToString();
+                string destino = comboBox6.SelectedValue.ToString();
+                string escala = comboBox7.SelectedValue.ToString();
+                // if (escala.Equals(null))
+                // {
                 Rutas d = new Rutas();
-                d.getRoute(origen, escala);
+                d.getRoute(origen, destino, "pty", 3);
                 // d.getRoute("pty", "sjo");
-                // Console.WriteLine("Costo");
-                // List<treeNode> r=d.clone.Reverse();
-                decimal costo = d.clone[1].costo;
-                Console.WriteLine("Ruta");
-                foreach (treeNode t in d.clone)
-                {
-
-                    Console.Write(t.origen + " ---> ");
-                }
-                //scale
-                Rutas d1 = new Rutas();
-                // d.getRoute("mma", "pty");
-                d1.getRoute(escala, destino);
                 Console.WriteLine("Costo");
                 // List<treeNode> r=d.clone.Reverse();
-                costo = costo + d1.clone[1].costo; //costo total de la ruta con escala.
-                Console.WriteLine(costo);
+                //   Console.WriteLine(d.clone[0].costo);
                 Console.WriteLine("Ruta");
-                foreach (treeNode t1 in d1.clone)
+                int c = d.clone.Count;
+                string r = "";
+                foreach (treeNode t in d.clone)
                 {
-
-                    Console.Write(t1.origen + " ---> ");
+                    r += t.origen + " ---> ";
+                    Console.Write(t.origen + " ---> ");
                 }
-            }*/
+                if (r != "")
+                {
+                    try
+                    {
+                        ciudadO.Text = instancia.encontrarCiudad(origen);
+                        ciudadD.Text = instancia.encontrarCiudad(destino);
+                        paisE.Text = instancia.encontrarPais(escala);
+                        textBox3.Text = r;
+                    }
+                    catch (Exception ex) { }
+                }
+                else
+                {
+                    label10.Text = "no existe ruta";
+                }
+
+                //    }
+                /*
+                    if (!escala.Equals(null))
+                    {
+
+                        Rutas d = new Rutas();
+                        d.getRoute(origen, escala);
+                        // d.getRoute("pty", "sjo");
+                        // Console.WriteLine("Costo");
+                        // List<treeNode> r=d.clone.Reverse();
+                        decimal costo = d.clone[1].costo;
+                        Console.WriteLine("Ruta");
+                        foreach (treeNode t in d.clone)
+                        {
+
+                            Console.Write(t.origen + " ---> ");
+                        }
+                        //scale
+                        Rutas d1 = new Rutas();
+                        // d.getRoute("mma", "pty");
+                        d1.getRoute(escala, destino);
+                        Console.WriteLine("Costo");
+                        // List<treeNode> r=d.clone.Reverse();
+                        costo = costo + d1.clone[1].costo; //costo total de la ruta con escala.
+                        Console.WriteLine(costo);
+                        Console.WriteLine("Ruta");
+                        foreach (treeNode t1 in d1.clone)
+                        {
+
+                            Console.Write(t1.origen + " ---> ");
+                        }
+                    }*/
+            }catch(Exception ex){
+                MessageBox.Show(ex.Message);
             }
+        }
         
 
         private void button2_Click(object sender, EventArgs e)
@@ -215,6 +259,20 @@ namespace viajes_sin_limites
            }
            catch (Exception ex)
            {
+           }
+       }
+
+       private void presupuesto_CheckedChanged(object sender, EventArgs e)
+       {
+           if (presupuesto.Checked == true)
+           {
+               textBox3.Visible = true;
+               Escalas.AutoCheck = false;
+           }
+           else {
+               textBox3.Text = "";
+               textBox3.Visible = false;
+               Escalas.AutoCheck = true;
            }
        }
     

@@ -81,14 +81,16 @@ namespace viajes_sin_limites
             }
         }
 
-
-        public string encontrarPais(string p_Pais)
+        /**
+         * Busca en la base de datos el nombre del aeropuerdo donde se realizará la escala
+         */
+        public string encontrarEscala(string p_Escala)
         {
             try
             {
                 OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DatabaseVSL.accdb");
                 con.Open();
-                OleDbDataAdapter dat = new OleDbDataAdapter("SELECT Nombre FROM Paises WHERE (Codigo = '" + p_Pais + "')", con);
+                OleDbDataAdapter dat = new OleDbDataAdapter("SELECT Nombre FROM Aeropuertos WHERE (Codigo = '" + p_Escala + "')", con);
                 DataTable dt = new DataTable();
                 dat.Fill(dt);
                 con.Close();
@@ -99,6 +101,20 @@ namespace viajes_sin_limites
             {
                 return "";
             }
+        }
+
+        /**
+         * consulta en la base de datos todos los aeropuertos existententes
+         */
+        public DataTable llenarComboEscalas(string p_PaisO,string p_PaisD)
+        {
+            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DatabaseVSL.accdb");
+            con.Open();
+            OleDbDataAdapter dat = new OleDbDataAdapter("SELECT Aeropuertos.Codigo, Aeropuertos.Nombre FROM (Ciudades INNER JOIN Aeropuertos ON Aeropuertos.id_ciudad = Ciudades.Id) WHERE (Ciudades.codigo_pais <> '" + p_PaisO + "')AND (Ciudades.codigo_pais <> '" + p_PaisD + "')", con);
+            DataTable dt = new DataTable();
+            dat.Fill(dt);
+            con.Close();
+            return dt;
         }
 
     }

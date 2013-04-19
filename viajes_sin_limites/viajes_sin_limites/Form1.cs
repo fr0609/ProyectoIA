@@ -19,6 +19,15 @@ namespace viajes_sin_limites
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            try {
+                DataTable dt = instancia.llenarComboEscalas(comboBox1.SelectedValue.ToString(), comboBox4.SelectedValue.ToString());
+                comboBox7.DataSource = dt;
+                comboBox7.DisplayMember = "Nombre";
+                comboBox7.ValueMember = "Codigo";
+            }
+            catch (Exception ex) { 
+                MessageBox.Show(ex.Message);
+            }
             if (Escalas.Checked == true)
             {
                 presupuesto.AutoCheck = false;
@@ -43,16 +52,85 @@ namespace viajes_sin_limites
             label10.Text = "";
 
             if(Escalas.Checked==true){
-                MessageBox.Show("escala");
+                //MessageBox.Show("escala");
+                try {
+                    string origen = comboBox3.SelectedValue.ToString();
+                    string destino = comboBox6.SelectedValue.ToString();
+                    string escala = comboBox7.SelectedValue.ToString();
+                    Rutas d = new Rutas();
+                    d.getRoute(origen, destino, escala, 3);
+                    ///////
+                    int c = d.clone.Count;
+                    string r = "";
+                    foreach (treeNode t in d.clone)
+                    {
+                        r += t.origen + " ---> ";
+                        Console.Write(t.origen + " ---> ");
+                    }
+                    if (r != "")
+                    {
+                        try
+                        {
+                            ciudadO.Text = instancia.encontrarCiudad(origen);
+                            ciudadD.Text = instancia.encontrarCiudad(destino);
+                            paisE.Text = instancia.encontrarEscala(escala);
+                            textBox3.Text = r;
+                        }
+                        catch (Exception ex) { }
+                    }
+                    else
+                    {
+                        label10.Text = "no existe ruta";
+                    }
+                }
+                catch(Exception ex){
+                    MessageBox.Show("Se deben seleccionar un Pais, una Ciudad y un Aeropuerto, tanto de salida como de destion");
+                }
             }
             else if (presupuesto.Checked == true)
             {
-                MessageBox.Show("presupuesto");
+                //MessageBox.Show("presupuesto");
             }
             else {
-                MessageBox.Show("sin restricciones");
+                //MessageBox.Show("sin restricciones");
+
+                try
+                {
+                    string origen = comboBox3.SelectedValue.ToString();
+                    string destino = comboBox6.SelectedValue.ToString();
+                    string escala = "";
+                    Rutas d = new Rutas();
+                    d.getRoute(origen, destino, escala, 3);
+                    ///////
+                    int c = d.clone.Count;
+                    string r = "";
+                    foreach (treeNode t in d.clone)
+                    {
+                        r += t.origen + " ---> ";
+                        Console.Write(t.origen + " ---> ");
+                    }
+                    if (r != "")
+                    {
+                        try
+                        {
+                            ciudadO.Text = instancia.encontrarCiudad(origen);
+                            ciudadD.Text = instancia.encontrarCiudad(destino);
+                            textBox3.Text = r;
+                        }
+                        catch (Exception ex) { }
+                    }
+                    else
+                    {
+                        label10.Text = "no existe ruta";
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show("Se deben seleccionar un Pais, una Ciudad y un Aeropuerto, tanto de salida como de destion");
+                }
+
+
             }
-            try
+           /* try
             {
 
                 string origen = comboBox3.SelectedValue.ToString();
@@ -122,9 +200,9 @@ namespace viajes_sin_limites
                             Console.Write(t1.origen + " ---> ");
                         }
                     }*/
-            }catch(Exception ex){
+           /* }catch(Exception ex){
                 MessageBox.Show(ex.Message);
-            }
+            }*/////////
         }
         
 
@@ -205,6 +283,12 @@ namespace viajes_sin_limites
                comboBox2.DataSource = dt;
                comboBox2.DisplayMember = "Nombre";
                comboBox2.ValueMember = "Id";
+
+               DataTable dt1 = instancia.llenarComboEscalas(comboBox1.SelectedValue.ToString(), comboBox4.SelectedValue.ToString());
+               comboBox7.DataSource = dt1;
+               comboBox7.DisplayMember = "Nombre";
+               comboBox7.ValueMember = "Codigo";
+
            }
            catch (Exception ex) { }
        }
@@ -240,6 +324,12 @@ namespace viajes_sin_limites
                comboBox5.DataSource = dt;
                comboBox5.DisplayMember = "Nombre";
                comboBox5.ValueMember = "Id";
+
+               DataTable dt1 = instancia.llenarComboEscalas(comboBox1.SelectedValue.ToString(), comboBox4.SelectedValue.ToString());
+               comboBox7.DataSource = dt1;
+               comboBox7.DisplayMember = "Nombre";
+               comboBox7.ValueMember = "Codigo";
+
            }
            catch (Exception ex) { }
        }

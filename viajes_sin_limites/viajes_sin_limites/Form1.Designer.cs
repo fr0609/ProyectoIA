@@ -206,14 +206,11 @@
             // 
             // comboBox7
             // 
-            this.comboBox7.DataSource = this.paisesBindingSource2;
-            this.comboBox7.DisplayMember = "Nombre";
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Location = new System.Drawing.Point(109, 30);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(143, 21);
             this.comboBox7.TabIndex = 22;
-            this.comboBox7.ValueMember = "Codigo";
             // 
             // paisesBindingSource2
             // 
@@ -430,9 +427,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(7, 80);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 2;
-            this.label6.Text = "País de Escala";
+            this.label6.Text = "Escala";
             // 
             // label5
             // 
